@@ -42,7 +42,8 @@ SET(SOURCES src/client.cpp
 
 ADD_LIBRARY(pvr.njoy ${SOURCES})
 IF(NOT WIN32)
-  TARGET_LINK_LIBRARIES(pvr.njoy ${xbmcplatform_LIBRARIES})
+  TARGET_LINK_LIBRARIES(pvr.njoy ${xbmcplatform_LIBRARIES}
+                                 ${TINYXML_LIBRARIES})
   set(CMAKE_SHARED_LINKER_FLAGS_RELEASE "-s")
   set(CMAKE_MODULE_LINKER_FLAGS_RELEASE "-s")
 ENDIF(NOT WIN32)

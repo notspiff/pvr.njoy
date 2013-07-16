@@ -1,8 +1,8 @@
 
 
 #include "N7Xml.h"
-#include "tinyxml/tinyxml.h"
-#include "xbmc/XMLUtils.h"
+#include "tinyxml.h"
+#include "xbmc/util/XMLUtils.h"
 
 using namespace ADDON;
 
