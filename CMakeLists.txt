@@ -1,28 +1,27 @@
-PROJECT(pvr.njoy)
+project(pvr.njoy)
 
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+cmake_minimum_required(VERSION 2.6)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${PROJECT_SOURCE_DIR})
 
-ENABLE_LANGUAGE(CXX)
+enable_language(CXX)
 
-OPTION(PACKAGE_ZIP "Package Zip file?" OFF)
+option(PACKAGE_ZIP "Package Zip file?" OFF)
 
-FIND_PACKAGE(TinyXML REQUIRED)
-FIND_PACKAGE(xbmc REQUIRED)
-FIND_PACKAGE(xbmcplatform REQUIRED)
+find_package(TinyXML REQUIRED)
+find_package(xbmc REQUIRED)
+find_package(xbmcplatform REQUIRED)
 
-addon_version(pvr.njoy NJOY)
-
-INCLUDE_DIRECTORIES(${xbmcplatform_INCLUDE_DIRS}
+include_directories(${xbmcplatform_INCLUDE_DIRS}
                     ${TINYXML_INCLUDE_DIR}
                     ${XBMC_INCLUDE_DIR})
 
-SET(SOURCES src/client.cpp
-            src/N7Xml.cpp)
+set(NJOY_SOURCES src/client.cpp
+                 src/N7Xml.cpp)
 
-SET(DEPLIBS ${xbmcplatform_LIBRARIES}
+set(DEPLIBS ${xbmcplatform_LIBRARIES}
             ${TINYXML_LIBRARIES})
 
-build_addon(pvr.njoy SOURCES DEPLIBS NJOY_VERSION)
-install_addon(pvr.njoy ${NJOY_VERSION})
+build_addon(pvr.njoy NJOY DEPLIBS)
+
+include(CPack)
