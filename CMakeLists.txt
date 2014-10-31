@@ -9,17 +9,17 @@ enable_language(CXX)
 option(PACKAGE_ZIP "Package Zip file?" OFF)
 
 find_package(TinyXML REQUIRED)
-find_package(xbmc REQUIRED)
-find_package(xbmcplatform REQUIRED)
+find_package(kodi REQUIRED)
+find_package(kodiplatform REQUIRED)
 
-include_directories(${xbmcplatform_INCLUDE_DIRS}
+include_directories(${KODIPLATFORM_INCLUDE_DIRS}
                     ${TINYXML_INCLUDE_DIR}
-                    ${XBMC_INCLUDE_DIR})
+                    ${KODI_INCLUDE_DIR})
 
 set(NJOY_SOURCES src/client.cpp
                  src/N7Xml.cpp)
 
-set(DEPLIBS ${xbmcplatform_LIBRARIES}
+set(DEPLIBS ${KODIPLATFORM_LIBRARIES}
             ${TINYXML_LIBRARIES})
 
 build_addon(pvr.njoy NJOY DEPLIBS)
