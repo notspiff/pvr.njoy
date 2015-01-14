@@ -226,6 +226,11 @@ const char * GetConnectionString()
   return "connected";
 }
 
+const char * GetBackendHostname(void)
+{
+  return g_strHostname.c_str();
+}
+
 int GetChannelsAmount(void)
 {
   return m_data->getChannelsAmount();
